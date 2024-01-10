@@ -1,24 +1,22 @@
 <script setup>
-import { ref } from 'vue'
 
-const count = ref(0)
+  import { ref } from 'vue'
 
-function increment() {
-  count.value++
-}
-</script>
+  const count = ref(0)
 
-<template>
-  <button @click="increment" class="bg-green-700 hover:bg-green-900 text-white py-2 px-4 rounded">Click Me</button>
-  <p>
-    You've pressed the button <span class='strong'>{{ count }}</span> times.
-  </p>
-</template>
+  function increment() {
+    count.value++
+  }
 
-<style scoped lang='less'>
+</script><template>
+
+  <button @click='increment'>Click Me</button>
+  <p>You've pressed the button <strong>{{ count }}</strong> times.</p>
+
+</template><style scoped lang='less'>
 
   p {
-    .strong {
+    > strong {
       color: red;
     }
   }

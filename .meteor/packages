@@ -30,7 +30,6 @@ meteortesting:mocha@2.1.0               # A package for writing and running your
 johanbrook:publication-collector@1.1.0  # Test a Meteor publication by collecting its output
 
 # legacy
-jquery@3.0.0                            # Wrapper package for npm-installed jquery
 reactive-var@1.0.12                     # Reactive variable for tracker
 
 # custom

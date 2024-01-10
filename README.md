@@ -1,6 +1,6 @@
-# Meteor + Vue3 + Less
+# Meteor + Vue3 + LessCSS
 
-This is a simple example of how to use Vue3 with Meteor with Less compiled with native bundler.
+This is a simple example of how to use Meteor with Vue3 and LessCSS, compiled with native Meteor bundler.
 
 ## How to use
 
@@ -16,3 +16,5 @@ This is a simple example of how to use Vue3 with Meteor with Less compiled with 
 - [Vue Meteor Tracker](https://github.com/meteor-vue/vue-meteor-tracker)
 - [Vue Router](https://next.router.vuejs.org/)
 - [Less](https://lesscss.org)
+
+As well as custom modified vuejs:vue3 and akryum:vue-less packages, until originals get updated.

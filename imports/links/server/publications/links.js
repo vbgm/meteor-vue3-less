@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
-import { LinksCollection } from '../../collection.js'
+import { Links } from '../../collection.js'
 
-
-Meteor.publish('links', function () {
-  return LinksCollection.find({})
+Meteor.publish('links_list', function () {
+  return Links.find({})
 })

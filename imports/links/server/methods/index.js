@@ -1,1 +1,1 @@
-import './insert-link.js'
+import './insert-one.js'

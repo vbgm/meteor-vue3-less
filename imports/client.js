@@ -1,5 +1,5 @@
-// main entry point is in imports/ui/main.jsx
-import '/imports/ui/main.js'
+import './ui/main.js'
+
 
 
 if (Meteor.isDevelopment) {

@@ -1,6 +1,6 @@
-# Meteor + Vue3 + Vite
+# Meteor + Vue3 + Less
 
-This is a simple example of how to use Vue3 with Meteor.
+This is a simple example of how to use Vue3 with Meteor with Less compiled with native bundler.
 
 ## How to use
 
@@ -11,9 +11,8 @@ This is a simple example of how to use Vue3 with Meteor.
 
 ## Libraries used
 
-- [Vue3](https://v3.vuejs.org/)
-- [Vite](https://vitejs.dev/)
-- [Vue Router](https://next.router.vuejs.org/)
 - [Meteor](https://www.meteor.com/)
+- [Vue3](https://v3.vuejs.org/)
 - [Vue Meteor Tracker](https://github.com/meteor-vue/vue-meteor-tracker)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [Vue Router](https://next.router.vuejs.org/)
+- [Less](https://lesscss.org)

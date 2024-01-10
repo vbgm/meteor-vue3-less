@@ -1,6 +1,6 @@
 <script setup>
-import Hello from './Hello.vue'
-import Info from './Info.vue'
+import Hello from './hello.vue'
+import Info from './info.vue'
 </script>
 
 <template>

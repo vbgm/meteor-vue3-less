@@ -5,8 +5,10 @@
 
 </script><template>
 
-  <h1>Welcome to Meteor!</h1>
-  <Counter/>
-  <Links/>
+  <div class='home'>
+    <h1>Welcome to Meteor!</h1>
+    <Counter/>
+    <Links/>
+  </div>
 
 </template>

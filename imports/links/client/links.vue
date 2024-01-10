@@ -24,26 +24,28 @@
 
 </script><template>
 
-  <h2>Learn Meteor!</h2>
+  <div class='links'>
+    <h3>Learn Meteor!</h3>
 
-  <form @submit.prevent='submit($event.target)'>
-    <input type='text' name='title' placeholder='Title' required>
-    <input type='url' name='url' placeholder='Url' required>
-    <input type='submit' name='submit' value='Add new link'>
-  </form>
+    <ul v-if='ready'>
+      <li
+      v-for='link of links'
+      :key='link._id'
+      >
+        <a
+        :href='link.url'
+        target='_blank'
+        >{{ link.title }}</a>
+      </li>
+    </ul>
 
-  <div v-if='!ready'>Loading...</div>
+    <div v-else>Loading...</div>
 
-  <ul v-else>
-    <li
-    v-for='link of links'
-    :key='link._id'
-    >
-      <a
-      :href='link.url'
-      target='_blank'
-      >{{ link.title }}</a>
-    </li>
-  </ul>
+    <form @submit.prevent='submit($event.target)'>
+      <input type='text' name='title' placeholder='Title' required>
+      <input type='url' name='url' placeholder='Url' required>
+      <input type='submit' name='submit' value='Add new link'>
+    </form>
+  </div>
 
 </template>

@@ -1,1 +1,1 @@
-import './links.js'
+import './list.js'

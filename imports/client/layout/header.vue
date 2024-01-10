@@ -1,5 +1,6 @@
 <template>
-  <nav class="flex items-center">
+
+  <nav class='header'>
     <RouterLink :to='{ name: `home` }'>
       Home
     </RouterLink>
@@ -8,4 +9,5 @@
       About
     </RouterLink>
   </nav>
+
 </template>

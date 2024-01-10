@@ -1,12 +1,13 @@
 <script setup>
 
   import Header from './header.vue'
+  import Body from './body/index.vue'
 
 </script><template>
 
-  <div id='app'>
+  <div class='layout'>
     <Header/>
-    <RouterView/>
+    <Body/>
   </div>
 
 </template>

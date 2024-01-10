@@ -14,3 +14,13 @@ function increment() {
     You've pressed the button <strong>{{ count }}</strong> times.
   </p>
 </template>
+
+<style scoped lang='less'>
+
+  p {
+    > strong {
+      color: red;      
+    }
+  }
+
+</style>

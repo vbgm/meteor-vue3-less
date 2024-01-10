@@ -1,11 +1,12 @@
 <script setup>
 
-  import Layout from './layout/index.vue'
+  import Header from './header.vue'
 
 </script><template>
 
   <div id='app'>
-    <Layout/>
+    <Header/>
+    <RouterView/>
   </div>
 
 </template>

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
-import { LinksCollection } from '../collection.js'
-import { insertLink } from './methods/insert-link.js'
+import { LinksCollection } from '/imports/links/collection.js'
+import { insertLink } from '/imports/links/server/methods/insert-link.js'
 
 
 Meteor.startup(async function () {

@@ -4,9 +4,20 @@
 
 </script><template>
 
-  <div class="p-8">
+  <div class='app'>
     <AppMenu/>
     <router-view />
+    <!-- <div class='test'>Test</div> -->
   </div>
 
 </template>
+
+<style scoped lang='less'>
+
+  .app {
+    > .test {
+      color: red;
+    }
+  }
+
+</style>

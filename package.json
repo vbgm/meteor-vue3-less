@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
+    "less": "^4.2.0",
     "meteor-node-stubs": "^1.2.7",
     "vue": "^3.4.7",
     "vue-meteor-tracker": "^3.0.0-beta.7",
@@ -23,5 +24,7 @@
     },
     "testModule": "tests/main.js"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.4.7"
+  }
 }

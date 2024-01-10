@@ -9,7 +9,7 @@ Package.describe({
 Package.registerBuildPlugin({
   name: 'vue3',
   use: [
-    'ecmascript@0.15.2',
+    'ecmascript@0.16.0',
     'caching-compiler@1.2.2',
     'babel-compiler@7.6.2',
     'tmeasday:check-npm-versions@1.0.2',

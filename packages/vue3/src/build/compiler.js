@@ -20,6 +20,23 @@ export class VueCompiler extends MultiFileCachingCompiler {
     ]
   }
 
+  normalizeTemplate(template) {
+    // In order to prevent Prettier from reporting error,
+    // one more temporary variable had to be used to reconstruct follow code:
+    // const indent = template.match(/^\n?(\s+)/)?.[1]
+    const temp = template.match(/^\n?(\s+)/)
+    const indent = temp && temp[1]
+
+    if (indent) {
+      return template
+        .split('\n')
+        .map(str => str.replace(indent, ''))
+        .join('\n')
+    }
+
+    return template
+  }
+
   async compileOneFile (inputFile) {
     const contents = inputFile.getContentsAsString()
     const filename = inputFile.getPathInPackage()
@@ -55,10 +72,35 @@ export class VueCompiler extends MultiFileCachingCompiler {
     }
 
     if (descriptor.template) {
+      let template
+
+      const lang = descriptor.template.attrs?.lang
+      
+      // if a template language is set (for example pug)
+      // check if there's a compiler and compile the template
+      if(lang) {
+        const templateCompiler = global.vue.lang[lang]
+
+        if (templateCompiler) {
+          const result = templateCompiler({
+            source: this.normalizeTemplate(descriptor.template.content),
+            inputFile: this.inputFile,
+            basePath: descriptor.template.map.file,
+          })
+
+          template = result.template
+        } else {
+          throw new Error(`Compiler missing for ${lang}`)
+        }
+      } else {
+        template = descriptor.template.content
+      }
+
       const templateResult = compileTemplate({
         id: scopeId,
         filename,
         source: descriptor.template.content,
+        // source: template,
         scoped: hasScoped,
         isProd,
         inMap: descriptor.template.map,
@@ -123,6 +165,28 @@ export class VueCompiler extends MultiFileCachingCompiler {
     }
 
     for (const style of descriptor.styles) {
+
+      // compile sass, scss, etc first to css
+      if (style.lang) {
+        if (!global.vue?.lang) throw new Error(`No 'global.vue.lang' provided. Did you install the appropriate preprocessor plugin?`)
+
+        const styleCompiler = global.vue.lang[style.lang]
+
+        if (styleCompiler) {
+          // expect this compiler to return css
+          const result = await styleCompiler({
+            data: style.content,
+            filename,
+          })
+          style.content = result.css
+          style.map = result.map
+          // console.log('style.content', style.content)
+        } else {
+          throw new Error(`Compiler missing for ${style.lang}`)
+        }
+      }
+
+      // compile css styles so scope etc is applied
       const styleResult = await compileStyleAsync({
         id: scopeId,
         filename,

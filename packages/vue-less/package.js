@@ -1,6 +1,6 @@
 Package.describe({
   name: 'akryum:vue-less',
-  version: '0.2.1',
+  version: '0.3.0',
   summary: 'Add less support for vue components',
   git: 'https://github.com/Akryum/meteor-vue-component',
   documentation: 'README.md',

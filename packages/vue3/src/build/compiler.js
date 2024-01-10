@@ -75,7 +75,7 @@ export class VueCompiler extends MultiFileCachingCompiler {
       let template
 
       const lang = descriptor.template.attrs?.lang
-      
+
       // if a template language is set (for example pug)
       // check if there's a compiler and compile the template
       if(lang) {
@@ -174,13 +174,10 @@ export class VueCompiler extends MultiFileCachingCompiler {
 
         if (styleCompiler) {
           // expect this compiler to return css
-          const result = await styleCompiler({
+          style.content = await styleCompiler({
             data: style.content,
-            filename,
+            filename
           })
-          style.content = result.css
-          style.map = result.map
-          // console.log('style.content', style.content)
         } else {
           throw new Error(`Compiler missing for ${style.lang}`)
         }

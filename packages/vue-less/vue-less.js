@@ -1,53 +1,31 @@
-// import sass from 'sass'
-// import magicImporter from 'node-sass-magic-importer'
-//
 import less from 'less'
 
 const compile = async ({ data, filename }) => {
-  // const result = sass.renderSync({
-  //   data,
-  //   outputStyle: 'compressed',
-  //   outFile: filename + '.css',
-  //   importer: magicImporter({
-  //     cwd: process.cwd(),
-  //     packagePrefix: '~',
-  //   }),
-  // })
+  try {
+    const result = await less.render(data, {
+      filename,
+      // plugins: [getImportPlugin(inputFile, dependencyManager)],
+      sourceMap: {
+        outputSourceFiles: false
+      }
+    })
+    // only return css, as vue3 compiler scopes it
+    return result.css
+  }
 
-  const result = await less.render(data, {
-    filename,
-    // plugins: [getImportPlugin(inputFile, dependencyManager)],
-    sourceMap: {
-      outputSourceFiles: true,
-    },
-  // }).then(function (output) {
-  //   cb(null, {
-  //     css: output.css,
-  //     map: output.map,
-  //   })
-  // }, function (error) {
-  //   console.error(error)
-  //   cb(error, null)
-  })
-
-  // console.log('result.map', result.map)
-
-  // only return css as vue3 compiler will scope it
-  return result
+  catch (error) {
+    console.error(error)
+  }
 }
 
 global.vue = global.vue || {}
 global.vue.lang = global.vue.lang || {}
 
 global.vue.lang.less = compile
-// global.vue.lang.less = compile
-// global.vue.lang.less = compile
 
 
+// Original akryum:vue-less
 
-
-
-//
 // import path from 'path'
 // import fs from 'fs'
 // import less from 'less'
@@ -147,7 +125,7 @@ global.vue.lang.less = compile
 // }
 //
 // global.vue.lang.less = async function ({
-//   source,
+//   data,
 //   inputFile,
 //   basePath,
 //   dependencyManager,
@@ -168,5 +146,5 @@ global.vue.lang.less = compile
 //   //   cb(error, null)
 //   })
 //
-//   return result.css
+//   return result
 // }

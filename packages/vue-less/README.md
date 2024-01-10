@@ -1,6 +1,6 @@
 # Integrate less with vue single-file components for Meteor
 
-Compatibility: **Vue 1.x, Vue 2.x**
+Compatibility: **Vue 1.x, Vue 2.x**, Vue3
 
 This meteor package adds [less](http://lesscss.org/) support in your single-file `.vue` components.
 

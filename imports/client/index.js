@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { createApp } from 'vue'
 import { VueMeteor } from 'vue-meteor-tracker'
 
-import App from './app.vue'
+import App from './layout/index.vue'
 import { router } from './router.js'
 
 Meteor.startup(() => {

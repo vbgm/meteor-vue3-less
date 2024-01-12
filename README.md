@@ -16,4 +16,4 @@ This is a simple example of how to use Meteor with Vue3 and LessCSS, using nativ
 - [Vue Router](https://next.router.vuejs.org/)
 - [Less](https://lesscss.org) - modifieid `akryum:vue-less` package
 
-The custom modified packages are used until originals get updated.
+The custom modified packages are using ideas from the open PRs to `vuejs:vue3` from @nathan-muir and @satyavh with some other modifications, and will be used here until originals get updated.

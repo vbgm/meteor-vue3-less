@@ -1,4 +1,3 @@
-<!-- Options API works as well
 <script>
 
   import { Links } from '/imports/links/collection.js'
@@ -34,33 +33,6 @@
     }
   }
 
-</script>
--->
-
-<script setup>
-
-  import { subscribe, autorun } from 'meteor/vuejs:vue3'
-  import { Links } from '/imports/links/collection.js'
-
-  const { ready } = subscribe('links_list')
-
-  const links = autorun(function () {
-    return Links.find({}).fetch()
-  }).result
-
-  async function submit (form) {
-    const title = form.title
-    const url = form.url
-
-    await Meteor.callAsync('links_insertOne', {
-      title: title.value,
-      url: url.value
-    }).catch(error => { alert(error.error) })
-
-    title.value = ''
-    url.value = ''
-  }
-
 </script><template>
 
   <div class='links'>
@@ -88,3 +60,33 @@
   </div>
 
 </template>
+
+
+
+<!--
+As an example, the same script using Composition API
+<script setup>
+
+  import { subscribe, autorun } from 'meteor/vuejs:vue3'
+  import { Links } from '/imports/links/collection.js'
+
+  const { ready } = subscribe('links_list')
+
+  const links = autorun(function () {
+    return Links.find({}).fetch()
+  }).result
+
+  async function submit (form) {
+    const title = form.title
+    const url = form.url
+
+    await Meteor.callAsync('links_insertOne', {
+      title: title.value,
+      url: url.value
+    }).catch(error => { alert(error.error) })
+
+    title.value = ''
+    url.value = ''
+  }
+
+</script>-->

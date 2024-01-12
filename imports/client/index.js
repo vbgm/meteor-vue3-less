@@ -1,13 +1,13 @@
 import { Meteor } from 'meteor/meteor'
 import { createApp } from 'vue'
 
-import App from './layout/index.vue'
+import Layout from './layout/index.vue'
 import { router } from './router.js'
 
 Meteor.startup(() => {
-  const app = createApp(App)
+  const app = createApp(Layout)
   app.use(router)
-  app.mount('body')
+  app.mount('#app')
 })
 
 if (Meteor.isDevelopment) {

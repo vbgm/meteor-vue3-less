@@ -1,7 +1,7 @@
 <script setup>
 
   import Counter from './counter.vue'
-  import Links from '/imports/links/client/links.vue'
+  import Links from '/imports/links/client/index.vue'
 
 </script><template>
 

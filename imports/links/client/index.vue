@@ -1,6 +1,45 @@
+<!-- Options API works as well
+<script>
+
+  import { Links } from '/imports/links/collection.js'
+
+  export default {
+    name: 'Links',
+    meteor: {
+      $subscribe: {
+        links_list: []
+      },
+      links () {
+        return Links.find({}).fetch()
+      }
+    },
+    computed: {
+      ready () {
+        return this.$subReady.links_list
+      }
+    },
+    methods: {
+      async submit (form) {
+        const title = form.title
+        const url = form.url
+
+        await Meteor.callAsync('links_insertOne', {
+          title: title.value,
+          url: url.value
+        }).catch(error => { alert(error.error) })
+
+        title.value = ''
+        url.value = ''
+      }
+    }
+  }
+
+</script>
+-->
+
 <script setup>
 
-  import { subscribe, autorun } from 'vue-meteor-tracker'
+  import { subscribe, autorun } from 'meteor/vuejs:vue3'
   import { Links } from '/imports/links/collection.js'
 
   const { ready } = subscribe('links_list')

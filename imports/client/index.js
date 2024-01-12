@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor'
 import { createApp } from 'vue'
-import { VueMeteor } from 'vue-meteor-tracker'
 
 import App from './layout/index.vue'
 import { router } from './router.js'
@@ -8,7 +7,6 @@ import { router } from './router.js'
 Meteor.startup(() => {
   const app = createApp(App)
   app.use(router)
-  app.use(VueMeteor)
   app.mount('body')
 })
 
